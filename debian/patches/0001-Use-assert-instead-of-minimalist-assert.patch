@@ -1,0 +1,92 @@
+From b16d427d349648290ddba816268dccfd2e4bd341 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Bastien=20ROUCARI=C3=88S?= <roucaries.bastien@gmail.com>
+Date: Fri, 25 Aug 2017 13:56:25 +0200
+Subject: Use assert instead of minimalist-assert
+
+Forwarded: no
+---
+ lib/hash/common.js  | 2 +-
+ lib/hash/hmac.js    | 2 +-
+ lib/hash/sha/256.js | 2 +-
+ lib/hash/sha/512.js | 2 +-
+ lib/hash/utils.js   | 2 +-
+ package.json        | 2 +-
+ 6 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/lib/hash/common.js b/lib/hash/common.js
+index c49f476..99bc9c4 100644
+--- a/lib/hash/common.js
++++ b/lib/hash/common.js
+@@ -1,7 +1,7 @@
+ 'use strict';
+ 
+ var utils = require('./utils');
+-var assert = require('minimalistic-assert');
++var assert = require('assert');
+ 
+ function BlockHash() {
+   this.pending = null;
+diff --git a/lib/hash/hmac.js b/lib/hash/hmac.js
+index faff12d..0423278 100644
+--- a/lib/hash/hmac.js
++++ b/lib/hash/hmac.js
+@@ -1,7 +1,7 @@
+ 'use strict';
+ 
+ var utils = require('./utils');
+-var assert = require('minimalistic-assert');
++var assert = require('assert');
+ 
+ function Hmac(hash, key, enc) {
+   if (!(this instanceof Hmac))
+diff --git a/lib/hash/sha/256.js b/lib/hash/sha/256.js
+index 6dbd6a0..74ea994 100644
+--- a/lib/hash/sha/256.js
++++ b/lib/hash/sha/256.js
+@@ -3,7 +3,7 @@
+ var utils = require('../utils');
+ var common = require('../common');
+ var shaCommon = require('./common');
+-var assert = require('minimalistic-assert');
++var assert = require('assert');
+ 
+ var sum32 = utils.sum32;
+ var sum32_4 = utils.sum32_4;
+diff --git a/lib/hash/sha/512.js b/lib/hash/sha/512.js
+index c371a25..3cef22a 100644
+--- a/lib/hash/sha/512.js
++++ b/lib/hash/sha/512.js
+@@ -2,7 +2,7 @@
+ 
+ var utils = require('../utils');
+ var common = require('../common');
+-var assert = require('minimalistic-assert');
++var assert = require('assert');
+ 
+ var rotr64_hi = utils.rotr64_hi;
+ var rotr64_lo = utils.rotr64_lo;
+diff --git a/lib/hash/utils.js b/lib/hash/utils.js
+index 7487f8e..cce4fcf 100644
+--- a/lib/hash/utils.js
++++ b/lib/hash/utils.js
+@@ -1,6 +1,6 @@
+ 'use strict';
+ 
+-var assert = require('minimalistic-assert');
++var assert = require('assert');
+ var inherits = require('inherits');
+ 
+ exports.inherits = inherits;
+diff --git a/package.json b/package.json
+index c1a338a..a930b4f 100644
+--- a/package.json
++++ b/package.json
+@@ -26,7 +26,7 @@
+   "homepage": "https://github.com/indutny/hash.js",
+   "dependencies": {
+     "inherits": "^2.0.3",
+-    "minimalistic-assert": "^1.0.1"
++    "assert": ">=1"
+   },
+   "devDependencies": {
+     "eslint": "^4.19.1",

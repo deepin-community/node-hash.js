@@ -1,0 +1,30 @@
+Source: node-hash.js
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Bastien Roucariès <rouca@debian.org>
+Section: javascript
+Testsuite: autopkgtest-pkg-nodejs
+Priority: optional
+Build-Depends: debhelper-compat (= 13)
+ , dh-sequence-nodejs
+ , mocha <!nocheck>
+ , node-assert <!nocheck>
+ , node-inherits <!nocheck>
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-hash.js
+Vcs-Git: https://salsa.debian.org/js-team/node-hash.js.git
+Homepage: https://github.com/indutny/hash.js
+Rules-Requires-Root: no
+
+Package: node-hash.js
+Architecture: all
+Depends: ${misc:Depends}
+ , node-assert
+ , node-inherits
+Description: Hash functions that could be run by both browser and nodejs
+ This module implements a few classical hash function that could be run
+ in browser and in nodejs context.
+ .
+ Hash functions implemented includes ripemd160,sha1, sha224, sha256,
+ sha384, sha512.
+ .
+ Node.js is an event-based server-side JavaScript engine.
